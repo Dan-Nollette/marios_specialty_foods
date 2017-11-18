@@ -1,19 +1,21 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    @products = Product.all.highest_cost_first
     @mostReviewedProducts = @products.most_reviews
     @newestProducts = @products.recently_added
   end
 
   def new
+    @tmp = 0.0
     @product = Product.new
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path
+      flash[:notice] = "Product successfully added!"
+      redirect_to products_path(@product)
     else
       render :new
     end
@@ -24,9 +26,8 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    tmp = Product.find(params[:id])
-    tmp.cost_in_usa_cents =  tmp.cost_in_usa_cents / 100.0
-    @product = tmp
+    @product = Product.find(params[:id])
+    @tmp =  @product.cost_in_usa_cents.to_f / 100
   end
 
   def destroy

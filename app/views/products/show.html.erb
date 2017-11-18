@@ -1,5 +1,5 @@
 <h1><%= @product.name %></h1>
-<h3> Cost: $<%= @product.cost_in_usa_cents*0.01%></h2>
+<h3> Cost: $<%= (@product.cost_in_usa_cents*0.01).round(2)%></h2>
 <h3> Country of Origin: <%= @product.country_of_origin%></h2>
 
 <% if @product.reviews.any? %>

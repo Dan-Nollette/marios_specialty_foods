@@ -38,3 +38,16 @@ _Please contact [nollette.dan@gmail.com](mailto:nollette.dan@gmail.com) with que
 Copyright (c) 2017 ** Dan Nollette **
 
 *This software is licensed under the MIT license.*
+
+
+
+
+
+
+Does the project include thorough unit and integration test coverage?
+
+Are success and error flash messages used correctly?
+
+Does the app use the asset pipeline for Bootstrap/CSS?
+
+Is the application in a polished, portfolio-ready state
