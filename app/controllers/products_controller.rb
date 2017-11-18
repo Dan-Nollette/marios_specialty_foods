@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @mostReviewedProducts = @products.most_reviews
+    @newestProducts = @products.recently_added
   end
 
   def new
@@ -44,7 +46,7 @@ class ProductsController < ApplicationController
 
 private
   def product_params
-    unless params["product"]["cost_in_usa_cents"] == "" 
+    unless params["product"]["cost_in_usa_cents"] == ""
       actual_cents = 100 * params["product"]["cost_in_usa_cents"].to_f
       params["product"]["cost_in_usa_cents"]= actual_cents
     end

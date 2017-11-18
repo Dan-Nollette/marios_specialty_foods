@@ -1,4 +1,24 @@
-<h1>Products</h1>
+<h1>Mario's Specialty Foods!</h1>
+
+<p>Mario's is a food emproium that's been serving the good people of Seattle for over 7500 years! Located at 1201 3rd street, we're open 24 hours, so pop in any time.</p>
+
+<h2>Newest Products</h1>
+
+  <ul>
+    <% @newestProducts.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+  </ul>
+
+<h2>Most Reviewed Products</h1>
+
+  <ul>
+    <% @mostReviewedProducts.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+  </ul>
+
+<h2>Products</h1>
 
 <ul>
   <% @products.each do |product| %>

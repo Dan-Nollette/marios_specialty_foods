@@ -35,6 +35,13 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @product = Product.find(@review.product_id)
+    @review.destroy
+    redirect_to product_path(@review.product)
+  end
+
   def index
     @review = Review.all
   end
